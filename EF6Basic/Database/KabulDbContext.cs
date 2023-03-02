@@ -1,4 +1,5 @@
-﻿using EF6Basic.Properties;
+﻿using EF6Basic.Models;
+using EF6Basic.Properties;
 using MySql.Data.EntityFramework;
 using System;
 using System.Collections.Generic;
@@ -15,5 +16,10 @@ namespace EF6Basic.Database
     public KabulDbContext() : base("name=KABUL_CONNECTIONSTRING")
     {
     }
+
+    // DbSet
+    public DbSet<School>? Schools { get; set; }
+    public DbSet<Class>? Classes { get; set; }
+    public DbSet<Student>? Students { get; set; }
   }
 }

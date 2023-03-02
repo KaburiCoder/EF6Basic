@@ -31,6 +31,7 @@
       this.btnConnection = new System.Windows.Forms.Button();
       this.label1 = new System.Windows.Forms.Label();
       this.lblStatus = new System.Windows.Forms.Label();
+      this.btnCreateDatabase = new System.Windows.Forms.Button();
       this.SuspendLayout();
       // 
       // btnConnection
@@ -61,11 +62,22 @@
       this.lblStatus.TabIndex = 2;
       this.lblStatus.Text = "Status";
       // 
+      // btnCreateDatabase
+      // 
+      this.btnCreateDatabase.Location = new System.Drawing.Point(12, 74);
+      this.btnCreateDatabase.Name = "btnCreateDatabase";
+      this.btnCreateDatabase.Size = new System.Drawing.Size(159, 56);
+      this.btnCreateDatabase.TabIndex = 3;
+      this.btnCreateDatabase.Text = "데이터베이스 스키마 생성";
+      this.btnCreateDatabase.UseVisualStyleBackColor = true;
+      this.btnCreateDatabase.Click += new System.EventHandler(this.btnCreateDatabase_Click);
+      // 
       // Form1
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(800, 450);
+      this.Controls.Add(this.btnCreateDatabase);
       this.Controls.Add(this.lblStatus);
       this.Controls.Add(this.label1);
       this.Controls.Add(this.btnConnection);
@@ -81,5 +93,6 @@
     private Button btnConnection;
     private Label label1;
     private Label lblStatus;
+    private Button btnCreateDatabase;
   }
 }

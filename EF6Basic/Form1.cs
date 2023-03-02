@@ -16,5 +16,13 @@ namespace EF6Basic
         lblStatus.Text = context.Database.Exists().ToString();
       }
     }
+
+    private void btnCreateDatabase_Click(object sender, EventArgs e)
+    {
+      using (var context = new KabulDbContext())
+      {
+        context.Database.CreateIfNotExists();
+      }
+    }
   }
 }
