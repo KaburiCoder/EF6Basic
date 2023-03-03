@@ -15,8 +15,8 @@ namespace EF6Basic.Models
     [Required]
     public string Name { get; set; } = string.Empty;
 
-    [Column("age")]
-    public int Age { get; set; }
+    [Column("birthday")]
+    public int Birthday { get; set; }
 
     [Column("class_id")]
     public int ClassId { get; set; }

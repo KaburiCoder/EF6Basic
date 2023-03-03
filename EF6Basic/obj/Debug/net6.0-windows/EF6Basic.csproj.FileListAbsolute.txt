@@ -38,3 +38,5 @@ C:\YoutubeLecture\EF6Basic\EF6Basic\obj\Debug\net6.0-windows\EF6Basic.pdb
 C:\YoutubeLecture\EF6Basic\EF6Basic\obj\Debug\net6.0-windows\EF6Basic.genruntimeconfig.cache
 C:\YoutubeLecture\EF6Basic\EF6Basic\obj\Debug\net6.0-windows\ref\EF6Basic.dll
 C:\YoutubeLecture\EF6Basic\EF6Basic\bin\Debug\net6.0-windows\EF6Basic.dll.config
+C:\YoutubeLecture\EF6Basic\EF6Basic\obj\Debug\net6.0-windows\EF6Basic.Migrations.KabulDbContext.CreateTable.resources
+C:\YoutubeLecture\EF6Basic\EF6Basic\obj\Debug\net6.0-windows\EF6Basic.Migrations.KabulDbContext.AgeToBirthday.resources
