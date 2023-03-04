@@ -7,15 +7,15 @@
   {
     public override void Up()
     {
-      //AddColumn("student", "birthday", c => c.String(nullable: false, maxLength: 8));
+      //AddColumn("dbo.student", "birthday", c => c.String(nullable: false, maxLength: 8, storeType: "nvarchar"));
       Sql("ALTER TABLE student ADD COLUMN birthday VARCHAR(8) NOT NULL AFTER name");
-      DropColumn("student", "age");
+      DropColumn("dbo.student", "age");
     }
 
     public override void Down()
     {
-      AddColumn("student", "age", c => c.Int(nullable: false));
-      DropColumn("student", "birthday");
+      AddColumn("dbo.student", "age", c => c.Int(nullable: false));
+      DropColumn("dbo.student", "birthday");
     }
   }
 }

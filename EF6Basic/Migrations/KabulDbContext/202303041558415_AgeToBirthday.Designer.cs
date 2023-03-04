@@ -13,7 +13,7 @@ namespace EF6Basic.Migrations.KabulDbContext
         
         string IMigrationMetadata.Id
         {
-            get { return "202303031606413_AgeToBirthday"; }
+            get { return "202303041558415_AgeToBirthday"; }
         }
         
         string IMigrationMetadata.Source
