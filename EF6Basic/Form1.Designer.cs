@@ -32,6 +32,7 @@
       this.label1 = new System.Windows.Forms.Label();
       this.lblStatus = new System.Windows.Forms.Label();
       this.btnCreateDatabase = new System.Windows.Forms.Button();
+      this.btnSave = new System.Windows.Forms.Button();
       this.SuspendLayout();
       // 
       // btnConnection
@@ -72,11 +73,22 @@
       this.btnCreateDatabase.UseVisualStyleBackColor = true;
       this.btnCreateDatabase.Click += new System.EventHandler(this.btnCreateDatabase_Click);
       // 
+      // btnSave
+      // 
+      this.btnSave.Location = new System.Drawing.Point(12, 136);
+      this.btnSave.Name = "btnSave";
+      this.btnSave.Size = new System.Drawing.Size(159, 56);
+      this.btnSave.TabIndex = 4;
+      this.btnSave.Text = "저장";
+      this.btnSave.UseVisualStyleBackColor = true;
+      this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+      // 
       // Form1
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(800, 450);
+      this.Controls.Add(this.btnSave);
       this.Controls.Add(this.btnCreateDatabase);
       this.Controls.Add(this.lblStatus);
       this.Controls.Add(this.label1);
@@ -94,5 +106,6 @@
     private Label label1;
     private Label lblStatus;
     private Button btnCreateDatabase;
+    private Button btnSave;
   }
 }
