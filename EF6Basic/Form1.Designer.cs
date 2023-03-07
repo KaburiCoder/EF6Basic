@@ -33,6 +33,7 @@
       this.lblStatus = new System.Windows.Forms.Label();
       this.btnCreateDatabase = new System.Windows.Forms.Button();
       this.btnSave = new System.Windows.Forms.Button();
+      this.btnSelect = new System.Windows.Forms.Button();
       this.SuspendLayout();
       // 
       // btnConnection
@@ -83,11 +84,22 @@
       this.btnSave.UseVisualStyleBackColor = true;
       this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
       // 
+      // btnSelect
+      // 
+      this.btnSelect.Location = new System.Drawing.Point(12, 198);
+      this.btnSelect.Name = "btnSelect";
+      this.btnSelect.Size = new System.Drawing.Size(159, 31);
+      this.btnSelect.TabIndex = 5;
+      this.btnSelect.Text = "조회";
+      this.btnSelect.UseVisualStyleBackColor = true;
+      this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
+      // 
       // Form1
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(800, 450);
+      this.Controls.Add(this.btnSelect);
       this.Controls.Add(this.btnSave);
       this.Controls.Add(this.btnCreateDatabase);
       this.Controls.Add(this.lblStatus);
@@ -107,5 +119,6 @@
     private Label lblStatus;
     private Button btnCreateDatabase;
     private Button btnSave;
+    private Button btnSelect;
   }
 }
