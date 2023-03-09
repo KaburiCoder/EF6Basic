@@ -68,6 +68,157 @@ namespace EF6Basic
       using (var context = new KabulDbContext())
       {
         {
+          //SELECT c.id, c.name, '빈 데이터' birthday FROM class c
+          //UNION ALL
+          //SELECT s.id, s.name, s.birthday FROM student s          
+          var classQuery = from c in context.Classes
+                           select new {Id = c.Id, Name = c.Name, Birthday = "빈 데이터"};
+
+          var studentQuery = from s in context.Students
+                             select new { s.Id, s.Name, s.Birthday };
+
+          var unionQuery = classQuery.Union(studentQuery);
+
+          var values = unionQuery.ToList();
+        }
+
+        {
+          //SELECT c.name, s.name, s.birthday FROM class c
+          //LEFT JOIN student s
+          //ON c.id = s.class_id
+          //WHERE s.birthday > '19940202'
+          var query = from c in context.Classes
+                      join s in context.Students
+                        on c.Id equals s.ClassId
+                        into joinedData
+                      from jd in joinedData.DefaultIfEmpty()
+                      where string.Compare(jd == null ? "" : jd.Birthday, "19940202") > 0
+                      select new
+                      {
+                        ClassName = c.Name,
+                        StudentName = jd == null ? "" : jd.Name,
+                        StudentBirthday = jd == null ? "" : jd.Birthday,
+                      };
+
+          var values = query.ToList();
+        }
+
+
+
+
+        {
+          //SELECT c.name, s.name, s.birthday FROM class c
+          //INNER JOIN student s
+          //ON c.id = s.class_id
+          //WHERE s.birthday > '19940202'        
+
+          //var query = from s in context.Students
+          //            where string.Compare(s.Birthday, "19940202") > 0
+          //            select new
+          //            {
+          //              ClassName = s.Class == null ? "" : s.Class.Name,
+          //              StudentName = s.Name,
+          //              StudentBirthday = s.Birthday,
+          //            };
+
+          var query = from c in context.Classes
+                      join s in context.Students
+                      on c.Id equals s.ClassId
+                      where string.Compare(s.Birthday, "19940202") > 0
+                      select new
+                      {
+                        ClassName = c.Name,
+                        StudentName = s.Name,
+                        StudentBirthday = s.Birthday,
+                      };
+
+          var values = query.ToList();
+        }
+
+        {
+          // SELECT name, birthday FROM student
+          // WHERE birthday > '19940202'
+          // GROUP BY class_id
+          // ORDER BY birthday DESC, name DESC
+          var query = from s in context.Students
+                      where string.Compare(s.Birthday, "19940202") > 0
+                      orderby s.Birthday descending, s.Name descending
+                      group s by s.ClassId into g
+                      select new
+                      {
+                        ClassId = g.Key,
+                        Count = g.Count(),
+                        Students = g.Select(s => new { s.Id, s.Name })
+                      };
+
+          var values = query.ToList();
+        }
+
+        {
+          // SELECT name, birthday FROM student
+          // WHERE birthday > '19940202'
+          // GROUP BY class_id
+          // ORDER BY birthday DESC, name DESC
+          var query = from s in context.Students
+                      where string.Compare(s.Birthday, "19940202") > 0
+                      orderby s.Birthday descending, s.Name descending
+                      group s by s.ClassId into g
+                      select new
+                      {
+                        ClassId = g.Key,
+                        Count = g.Count(),
+                        Students = g.Select(s => new { s.Id, s.Name })
+                      };
+
+          var values = query.ToList();
+        }
+
+        {
+          /* 주의 */
+          // Skip 메서드는 orderby(정렬)이 되지 않으면 오류가 발생한다.
+
+          // SELECT name, birthday FROM student
+          // WHERE birthday > '19940202'
+          // ORDER BY birthday DESC, name DESC
+          // LIMIT 5, 10;         
+          var query = (from s in context.Students
+                       where string.Compare(s.Birthday, "19940202") > 0
+                       orderby s.Birthday descending, s.Name descending
+                       select new { s.Name, s.Birthday })
+                      .Skip(5)
+                      .Take(10);
+
+          var values = query.ToList();
+        }
+
+        {
+          // SELECT name, birthday FROM student
+          // WHERE birthday > '19940202'
+          // ORDER BY birthday DESC, name DESC
+          // LIMIT 5, 10;         
+          var query = (from s in context.Students
+                       where string.Compare(s.Birthday, "19940202") > 0
+                       orderby s.Birthday descending, s.Name descending
+                       select new { s.Name, s.Birthday })
+                      .Skip(5)
+                      .Take(10);
+
+          var values = query.ToList();
+        }
+
+        {
+          // SELECT name, birthday FROM student
+          // WHERE birthday > '19940202'
+          // ORDER BY birthday DESC, name DESC;         
+          var query = from s in context.Students
+                      where string.Compare(s.Birthday, "19940202") > 0
+                      orderby s.Birthday descending, s.Name descending
+                      select new { s.Name, s.Birthday };
+
+          var values = query.ToList();
+        }
+
+        {
           // SELECT name, birthday FROM student WHERE birthday = '19940101' OR birthday = '19940202';         
           var query = from s in context.Students
                       where s.Name == "김철수" && (s.Birthday == "19940101" || s.Birthday == "19940202")
