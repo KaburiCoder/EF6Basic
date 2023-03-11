@@ -72,7 +72,7 @@ namespace EF6Basic
           //UNION ALL
           //SELECT s.id, s.name, s.birthday FROM student s          
           var classQuery = from c in context.Classes
-                           select new {Id = c.Id, Name = c.Name, Birthday = "后 单捞磐"};
+                           select new { Id = c.Id, Name = c.Name, Birthday = "后 单捞磐" };
 
           var studentQuery = from s in context.Students
                              select new { s.Id, s.Name, s.Birthday };
@@ -112,25 +112,25 @@ namespace EF6Basic
           //ON c.id = s.class_id
           //WHERE s.birthday > '19940202'        
 
-          //var query = from s in context.Students
-          //            where string.Compare(s.Birthday, "19940202") > 0
-          //            select new
-          //            {
-          //              ClassName = s.Class == null ? "" : s.Class.Name,
-          //              StudentName = s.Name,
-          //              StudentBirthday = s.Birthday,
-          //            };
-
-          var query = from c in context.Classes
-                      join s in context.Students
-                      on c.Id equals s.ClassId
+          var query = from s in context.Students
                       where string.Compare(s.Birthday, "19940202") > 0
                       select new
                       {
-                        ClassName = c.Name,
+                        ClassName = s.Class == null ? "" : s.Class.Name,
                         StudentName = s.Name,
                         StudentBirthday = s.Birthday,
                       };
+
+          //var query = from c in context.Classes
+          //            join s in context.Students
+          //            on c.Id equals s.ClassId
+          //            where string.Compare(s.Birthday, "19940202") > 0
+          //            select new
+          //            {
+          //              ClassName = c.Name,
+          //              StudentName = s.Name,
+          //              StudentBirthday = s.Birthday,
+          //            };
 
           var values = query.ToList();
         }
@@ -315,9 +315,47 @@ namespace EF6Basic
       }
     }
 
+    // Update
+    private void btnUpdate_Click(object sender, EventArgs e)
+    {
+     
+      using (var context = new KabulDbContext())
+      {
+        //student - id : 1 name: 全辨悼 birthday: 19940101
+        Student findedStudent = context.Students.Find(1);
+
+        // Update
+        findedStudent.Birthday = "20000101";
+        context.Entry(findedStudent).State = System.Data.Entity.EntityState.Modified;
+        context.SaveChanges();
+
+        Student student = context.Students.Find(1);
+
+        MessageBox.Show($"{student.Id} / {student.Name} / {student.Birthday}");
+      }
+    }
 
 
 
+
+
+
+
+
+
+
+    // Delete
+    private void btnDelete_Click(object sender, EventArgs e)
+    {
+      using (var context = new KabulDbContext())
+      {
+        Student student = context.Students.Find(2);
+
+        context.Students.Remove(student);
+        context.SaveChanges();
+
+      }
+    }
 
 
 

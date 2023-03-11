@@ -34,6 +34,8 @@
       this.btnCreateDatabase = new System.Windows.Forms.Button();
       this.btnSave = new System.Windows.Forms.Button();
       this.btnSelect = new System.Windows.Forms.Button();
+      this.btnUpdate = new System.Windows.Forms.Button();
+      this.btnDelete = new System.Windows.Forms.Button();
       this.SuspendLayout();
       // 
       // btnConnection
@@ -88,17 +90,39 @@
       // 
       this.btnSelect.Location = new System.Drawing.Point(12, 198);
       this.btnSelect.Name = "btnSelect";
-      this.btnSelect.Size = new System.Drawing.Size(159, 31);
+      this.btnSelect.Size = new System.Drawing.Size(159, 56);
       this.btnSelect.TabIndex = 5;
       this.btnSelect.Text = "조회";
       this.btnSelect.UseVisualStyleBackColor = true;
       this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
+      // 
+      // btnUpdate
+      // 
+      this.btnUpdate.Location = new System.Drawing.Point(12, 260);
+      this.btnUpdate.Name = "btnUpdate";
+      this.btnUpdate.Size = new System.Drawing.Size(159, 56);
+      this.btnUpdate.TabIndex = 6;
+      this.btnUpdate.Text = "수정";
+      this.btnUpdate.UseVisualStyleBackColor = true;
+      this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+      // 
+      // btnDelete
+      // 
+      this.btnDelete.Location = new System.Drawing.Point(12, 322);
+      this.btnDelete.Name = "btnDelete";
+      this.btnDelete.Size = new System.Drawing.Size(159, 56);
+      this.btnDelete.TabIndex = 7;
+      this.btnDelete.Text = "삭제";
+      this.btnDelete.UseVisualStyleBackColor = true;
+      this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
       // 
       // Form1
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(800, 450);
+      this.Controls.Add(this.btnDelete);
+      this.Controls.Add(this.btnUpdate);
       this.Controls.Add(this.btnSelect);
       this.Controls.Add(this.btnSave);
       this.Controls.Add(this.btnCreateDatabase);
@@ -120,5 +144,7 @@
     private Button btnCreateDatabase;
     private Button btnSave;
     private Button btnSelect;
+    private Button btnUpdate;
+    private Button btnDelete;
   }
 }
