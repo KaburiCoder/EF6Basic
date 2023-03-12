@@ -25,7 +25,6 @@ C:\YoutubeLecture\EF6Basic\EF6Basic\bin\Debug\net6.0-windows\runtimes\win-x86\na
 C:\YoutubeLecture\EF6Basic\EF6Basic\bin\Debug\net6.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\YoutubeLecture\EF6Basic\EF6Basic\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\YoutubeLecture\EF6Basic\EF6Basic\obj\Debug\net6.0-windows\EF6Basic.csproj.AssemblyReference.cache
-C:\YoutubeLecture\EF6Basic\EF6Basic\obj\Debug\net6.0-windows\EF6Basic.Form1.resources
 C:\YoutubeLecture\EF6Basic\EF6Basic\obj\Debug\net6.0-windows\EF6Basic.csproj.GenerateResource.cache
 C:\YoutubeLecture\EF6Basic\EF6Basic\obj\Debug\net6.0-windows\EF6Basic.GeneratedMSBuildEditorConfig.editorconfig
 C:\YoutubeLecture\EF6Basic\EF6Basic\obj\Debug\net6.0-windows\EF6Basic.AssemblyInfoInputs.cache
@@ -40,3 +39,7 @@ C:\YoutubeLecture\EF6Basic\EF6Basic\obj\Debug\net6.0-windows\ref\EF6Basic.dll
 C:\YoutubeLecture\EF6Basic\EF6Basic\bin\Debug\net6.0-windows\EF6Basic.dll.config
 C:\YoutubeLecture\EF6Basic\EF6Basic\obj\Debug\net6.0-windows\EF6Basic.Migrations.KabulDbContext.CreateTable.resources
 C:\YoutubeLecture\EF6Basic\EF6Basic\obj\Debug\net6.0-windows\EF6Basic.Migrations.KabulDbContext.AgeToBirthday.resources
+C:\YoutubeLecture\EF6Basic\EF6Basic\obj\Debug\net6.0-windows\EF6Basic.LegacyForm1.resources
+C:\YoutubeLecture\EF6Basic\EF6Basic\obj\Debug\net6.0-windows\EF6Basic.Views.MainView.resources
+C:\YoutubeLecture\EF6Basic\EF6Basic\bin\Debug\net6.0-windows\Microsoft.Extensions.DependencyInjection.dll
+C:\YoutubeLecture\EF6Basic\EF6Basic\bin\Debug\net6.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll

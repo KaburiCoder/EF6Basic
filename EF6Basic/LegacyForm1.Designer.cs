@@ -1,6 +1,6 @@
 ﻿namespace EF6Basic
 {
-  partial class Form1
+  partial class LegacyForm1
   {
     /// <summary>
     ///  Required designer variable.

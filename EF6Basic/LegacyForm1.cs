@@ -3,9 +3,9 @@ using EF6Basic.Models;
 
 namespace EF6Basic
 {
-  public partial class Form1 : Form
+  public partial class LegacyForm1 : Form
   {
-    public Form1()
+    public LegacyForm1()
     {
       InitializeComponent();
     }
@@ -56,12 +56,6 @@ namespace EF6Basic
         MessageBox.Show("저장되었습니다.");
       }
     }
-
-
-
-
-
-
 
     private void btnSelect_Click(object sender, EventArgs e)
     {
@@ -335,15 +329,6 @@ namespace EF6Basic
       }
     }
 
-
-
-
-
-
-
-
-
-
     // Delete
     private void btnDelete_Click(object sender, EventArgs e)
     {
@@ -353,22 +338,7 @@ namespace EF6Basic
 
         context.Students.Remove(student);
         context.SaveChanges();
-
       }
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    }   
   }
 }

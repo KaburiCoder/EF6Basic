@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "f45ZUogU79cuM1drDsnqtXLbnxWHunKiM/EJMib7S0A1cqkb0pv0fmaqyJN5yU9TAPRlRwCQDLZsC5SKeXIbJg==",
+  "dgSpecHash": "AGUR6pDPixUnPtDn9xf0y2jznYsSwMHMRdyKXYENGas7ISfcVxZCIZf0eXDS3j7kA2S4iHcvZTkpXw9ohzKuXA==",
   "success": true,
   "projectFilePath": "C:\\YoutubeLecture\\EF6Basic\\EF6Basic\\EF6Basic.csproj",
   "expectedPackageFiles": [
@@ -10,6 +10,8 @@
     "C:\\Users\\RENEWCOM PC\\.nuget\\packages\\k4os.compression.lz4.streams\\1.2.6\\k4os.compression.lz4.streams.1.2.6.nupkg.sha512",
     "C:\\Users\\RENEWCOM PC\\.nuget\\packages\\k4os.hash.xxhash\\1.0.6\\k4os.hash.xxhash.1.0.6.nupkg.sha512",
     "C:\\Users\\RENEWCOM PC\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\RENEWCOM PC\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\7.0.0\\microsoft.extensions.dependencyinjection.7.0.0.nupkg.sha512",
+    "C:\\Users\\RENEWCOM PC\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0\\microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\RENEWCOM PC\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\RENEWCOM PC\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\RENEWCOM PC\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
