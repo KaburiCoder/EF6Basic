@@ -43,3 +43,7 @@ C:\YoutubeLecture\EF6Basic\EF6Basic\obj\Debug\net6.0-windows\EF6Basic.LegacyForm
 C:\YoutubeLecture\EF6Basic\EF6Basic\obj\Debug\net6.0-windows\EF6Basic.Views.MainView.resources
 C:\YoutubeLecture\EF6Basic\EF6Basic\bin\Debug\net6.0-windows\Microsoft.Extensions.DependencyInjection.dll
 C:\YoutubeLecture\EF6Basic\EF6Basic\bin\Debug\net6.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\YoutubeLecture\EF6Basic\EF6Basic\obj\Debug\net6.0-windows\EF6Basic.Views.ClassReg.resources
+C:\YoutubeLecture\EF6Basic\EF6Basic\obj\Debug\net6.0-windows\EF6Basic.Views.RegControl.resources
+C:\YoutubeLecture\EF6Basic\EF6Basic\obj\Debug\net6.0-windows\EF6Basic.Views.SchoolReg.resources
+C:\YoutubeLecture\EF6Basic\EF6Basic\obj\Debug\net6.0-windows\EF6Basic.Views.StudentReg.resources

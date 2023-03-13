@@ -28,12 +28,31 @@
     /// </summary>
     private void InitializeComponent()
     {
-      this.components = new System.ComponentModel.Container();
+      this.regControl = new EF6Basic.Views.RegControl();
+      this.SuspendLayout();
+      // 
+      // regControl
+      // 
+      this.regControl.Location = new System.Drawing.Point(12, 35);
+      this.regControl.Name = "regControl";
+      this.regControl.Size = new System.Drawing.Size(361, 340);
+      this.regControl.TabIndex = 0;
+      this.regControl.SelectedTabIndexChanged += new System.EventHandler(this.regControl_SelectedTabIndexChanged);
+      // 
+      // MainView
+      // 
+      this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(800, 450);
+      this.Controls.Add(this.regControl);
+      this.Name = "MainView";
       this.Text = "MainView";
+      this.ResumeLayout(false);
+
     }
 
     #endregion
+
+    private RegControl regControl;
   }
 }

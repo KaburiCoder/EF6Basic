@@ -4,8 +4,20 @@
     <Compile Update="LegacyForm1.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Views\Controls\ClassReg.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Views\MainView.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Controls\RegControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\Controls\SchoolReg.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\Controls\StudentReg.cs">
+      <SubType>UserControl</SubType>
     </Compile>
   </ItemGroup>
 </Project>
