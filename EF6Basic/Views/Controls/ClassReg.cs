@@ -20,7 +20,7 @@ namespace EF6Basic.Views
     {
       if (!_isLoaded) return;
 
-      AddClassListBoxItems();
+      LoadClassesOnly();
     }
 
     private int GetSchoolId()
@@ -35,8 +35,17 @@ namespace EF6Basic.Views
       cmbSchool.DisplayMember = "Name";
       cmbSchool.DataSource = _schools;
     }
+      
+    public ClassReg()
+    {
+      InitializeComponent();
+    }
 
-    private void AddClassListBoxItems()
+    public Class SelectedValue { get => (Class)lbClass.SelectedValue; set => lbClass.SelectedValue = value; }       
+
+    public Class GetInputData() => new Class { SchoolId = GetSchoolId(), Name = txtClass.Text.Trim() };
+
+    internal void LoadClassesOnly()
     {
       var classes = _schools.FirstOrDefault(s => s.Id == GetSchoolId())?.Classes;
 
@@ -45,22 +54,13 @@ namespace EF6Basic.Views
       lbClass.DataSource = classes?.ToList();
     }
 
-    public ClassReg()
-    {
-      InitializeComponent();
-    }
-
-    public Class SelectedValue { get => (Class)lbClass.SelectedValue; set => lbClass.SelectedValue = value; }
-
-    public Class GetInputData() => new Class { SchoolId = GetSchoolId(), Name = txtClass.Text.Trim() };
-       
     public new void Load(IEnumerable<School> schools)
     {
       _schools = schools;
 
       _isLoaded = false;
       AddSchoolComboItems();
-      AddClassListBoxItems();
+      LoadClassesOnly();
       _isLoaded = true;
     }   
   }

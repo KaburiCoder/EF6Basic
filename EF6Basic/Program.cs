@@ -13,7 +13,7 @@ namespace EF6Basic
       IServiceCollection services = new ServiceCollection();
 
       // 서비스 등록
-      services.AddTransient<KabulDbContext>();
+      services.AddScoped<KabulDbContext>();
 
       services.AddTransient<ISchoolRepository, SchoolRepository>();
       services.AddTransient<IClassRepository, ClassRepository>();

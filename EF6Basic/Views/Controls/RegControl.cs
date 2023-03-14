@@ -41,5 +41,16 @@ namespace EF6Basic.Views
     {
       classReg.Load(schools);
     }
+
+    public void LoadStudentReg(IEnumerable<School> schools)
+    {
+      studentReg.Load(schools);
+    }
+
+    public School GetSchoolInputData() => schoolReg.GetInputData();
+    public Class GetClassInputData() => classReg.GetInputData();
+    public Student GetStudentInputData() => studentReg.GetInputData();
+    internal void LoadClassesOnly() => classReg.LoadClassesOnly();
+    internal void LoadStudentsOnly() => studentReg.LoadStudentsOnly();
   }
 }
