@@ -1,4 +1,6 @@
 ﻿using EF6Basic.Models;
+using EF6Basic.Views.Controls;
+using EF6Basic.Views.Utilities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,7 +13,7 @@ using System.Windows.Forms;
 
 namespace EF6Basic.Views
 {
-  public partial class ClassReg : UserControl
+  public partial class ClassReg : UserControl, IReg
   {
     IEnumerable<School> _schools = default!;
     private bool _isLoaded = false;
@@ -21,19 +23,11 @@ namespace EF6Basic.Views
       if (!_isLoaded) return;
 
       LoadClassesOnly();
-    }
-
-    private int GetSchoolId()
-    {
-      int.TryParse(cmbSchool.SelectedValue?.ToString(), out int schoolId);
-      return schoolId;
-    }
+    }         
 
     private void AddSchoolComboItems()
     {
-      cmbSchool.ValueMember = "Id";
-      cmbSchool.DisplayMember = "Name";
-      cmbSchool.DataSource = _schools;
+      cmbSchool.BindIdWithName(_schools);      
     }
       
     public ClassReg()
@@ -41,13 +35,13 @@ namespace EF6Basic.Views
       InitializeComponent();
     }
 
-    public Class SelectedValue { get => (Class)lbClass.SelectedValue; set => lbClass.SelectedValue = value; }       
+    public object SelectedValue { get => lbClass.SelectedValue; set => lbClass.SelectedValue = value; }       
 
-    public Class GetInputData() => new Class { SchoolId = GetSchoolId(), Name = txtClass.Text.Trim() };
+    public object GetInputData() => new Class { SchoolId = cmbSchool.GetIdOfSelectedValue(), Name = txtClass.Text.Trim() };
 
     internal void LoadClassesOnly()
     {
-      var classes = _schools.FirstOrDefault(s => s.Id == GetSchoolId())?.Classes;
+      var classes = _schools.FirstOrDefault(s => s.Id == cmbSchool.GetIdOfSelectedValue())?.Classes;
 
       lbClass.ValueMember = "Id";
       lbClass.DisplayMember = "Name";
@@ -62,6 +56,8 @@ namespace EF6Basic.Views
       AddSchoolComboItems();
       LoadClassesOnly();
       _isLoaded = true;
-    }   
+    }
+
+    public void Clear() => txtClass.Clear();
   }
 }

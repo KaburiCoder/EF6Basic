@@ -1,4 +1,5 @@
-﻿using EF6Basic.Models;
+﻿using EF6Basic.Controllers.Validations;
+using EF6Basic.Models;
 using EF6Basic.Repositories;
 using EF6Basic.Views;
 using System;
@@ -15,41 +16,14 @@ namespace EF6Basic.Controllers
     private readonly IClassRepository _classRepository;
     private readonly IStudentRepository _studentRepository;
     private IMain _view = default!;
-
-    private async Task LoadSchoolReg()
-    {
-      var schools = await _schoolRepository.GetAllAsync();
-      _view.LoadSchoolReg(schools);
-    }
-
-    private async Task LoadClassReg()
-    {
-      var schools = await _schoolRepository.GetAllAsync();
-      _view.LoadClassReg(schools);
-    }
-
-    private async Task LoadStudentReg()
-    {
-      var schools = await _schoolRepository.GetAllAsync();
-      _view.LoadStudentReg(schools);
-    }
-
+     
     #region Save Methods
-    // Save School
-    private async Task<bool> ValidSchoolSave(School school)
-    {
-      if (school == null) return false;
-      if (string.IsNullOrWhiteSpace(school.Name)) return false;
-      if (await _schoolRepository.ExistByName(school.Name)) return false;
 
-      return true;
-    }
-
-    private async Task SaveSchoolReg()
-    {
-      School school = _view.GetSchoolInputData();
-      if (!await ValidSchoolSave(school)) return;
-
+    // Save School 
+    private async Task SaveSchoolReg(School school)
+    {     
+      if (!MainSaveValidation.ValidSchool(school)) return;
+      if (await _schoolRepository.ExistByName(school.Name)) return;
       if (await _schoolRepository.InsertAsync(school))
       {
         await LoadReg();
@@ -57,21 +31,10 @@ namespace EF6Basic.Controllers
     }
 
     // Save Class
-    private async Task<bool> ValidClassSave(Class cls)
-    {
-      if (cls == null) return false;
-      if (string.IsNullOrWhiteSpace(cls.Name)) return false;
-      if (cls.SchoolId == 0) return false;
-      if (await _classRepository.Exists(cls.SchoolId, cls.Name)) return false;
-
-      return true;
-    }
-
-    private async Task SaveClassReg()
-    {
-      Class cls = _view.GetClassInputData();
-      if (!await ValidClassSave(cls)) return;
-
+    private async Task SaveClassReg(Class cls)
+    {     
+      if (!MainSaveValidation.ValidClass(cls)) return;
+      if (await _classRepository.Exists(cls.SchoolId, cls.Name)) return;
       if (await _classRepository.InsertAsync(cls))
       {
         _view.LoadClassesOnly();        
@@ -79,20 +42,9 @@ namespace EF6Basic.Controllers
     }
 
     // Save Student
-    private bool ValidStudentSave(Student student)
-    {
-      if (student == null) return false;
-      if (string.IsNullOrWhiteSpace(student.Name) || student.Birthday == default) return false;
-      if (student.ClassId == 0) return false;
-
-      return true;
-    }
-
-    private async Task SaveStudentReg()
-    {
-      Student student = _view.GetStudentInputData();
-      if (!ValidStudentSave(student)) return;
-
+    private async Task SaveStudentReg(Student student)
+    {      
+      if (!MainSaveValidation.ValidStudent(student)) return;
       if (await _studentRepository.InsertAsync(student))
       {
         _view.LoadStudentsOnly();
@@ -107,6 +59,12 @@ namespace EF6Basic.Controllers
       this._studentRepository = studentRepository;
     }
 
+    public async Task LoadReg()
+    {
+      var schools = await _schoolRepository.GetAllAsync();
+      _view.LoadReg(schools);
+    }
+
     internal void SetView(IMain mainView)
     {
       _view = mainView;
@@ -117,37 +75,24 @@ namespace EF6Basic.Controllers
     {
       await LoadReg();
     }
-
-    internal async Task LoadReg()
-    {
-      switch (_view.RegType)
-      {
-        case RegType.School:
-          await LoadSchoolReg();
-          break;
-        case RegType.Class:
-          await LoadClassReg();
-          break;
-        default:
-          await LoadStudentReg();
-          break;
-      }
-    }
-
+     
     internal async Task OnSave()
     {
-      switch (_view.RegType)
+      var inputData = _view.GetInputData();
+
+      if (inputData is School school)
       {
-        case RegType.School:
-          await SaveSchoolReg();
-          break;
-        case RegType.Class:
-          await SaveClassReg();
-          break;
-        default:
-          await SaveStudentReg();
-          break;
+        await SaveSchoolReg(school);
       }
+      else if (inputData is Class cls)
+      {
+        await SaveClassReg(cls);
+      }
+      else if (inputData is Student student)
+      {
+        await SaveStudentReg(student);
+      }
+      _view.Clear();
     }
 
     internal async Task OnDelete()

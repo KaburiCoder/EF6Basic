@@ -1,4 +1,6 @@
 ﻿using EF6Basic.Models;
+using EF6Basic.Views.Controls;
+using EF6Basic.Views.Utilities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,38 +13,21 @@ using System.Windows.Forms;
 
 namespace EF6Basic.Views
 {
-  public partial class StudentReg : UserControl
+  public partial class StudentReg : UserControl, IReg
   {
     private IEnumerable<School> _schools = default!;
     private bool _isLoaded;
-
-    private int GetSchoolId()
-    {
-      int.TryParse(cmbSchool.SelectedValue?.ToString(), out int schoolId);
-      return schoolId;
-    }
-
-    private int GetClassId()
-    {
-      int.TryParse(cmbClass.SelectedValue?.ToString(), out int classId);
-      return classId;
-    }
-
+        
     private void AddSchoolComboItems()
     {
-      cmbSchool.ValueMember = "Id";
-      cmbSchool.DisplayMember = "Name";
-      cmbSchool.DataSource = _schools;
+      cmbSchool.BindIdWithName(_schools);   
     }
 
     private void AddClassComboItems()
     {
-      var classes = _schools.FirstOrDefault(s => s.Id == GetSchoolId())?.Classes;
-
-      cmbClass.ValueMember = "Id";
-      cmbClass.DisplayMember = "Name";
-      cmbClass.DataSource = classes?.ToList();
-    }         
+      var classes = _schools.FirstOrDefault(s => s.Id == cmbSchool.GetIdOfSelectedValue())?.Classes;
+      cmbClass.BindIdWithName(classes?.ToList());    
+    }
 
     private void cmbSchool_SelectedIndexChanged(object sender, EventArgs e)
     {
@@ -68,14 +53,14 @@ namespace EF6Basic.Views
       dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
     }
 
-    public Student SelectedValue
+    public object SelectedValue
     {
-      get => (Student)dgv.CurrentRow?.Tag!; set
+      get => dgv.CurrentRow?.Tag!; set
       {
         for (int i = 0; i < dgv.Rows.Count; i++)
         {
           var student = dgv.Rows[i].Tag as Student;
-          if (student != null && student.Id == value.Id)
+          if (student != null && value is Student st && student.Id == st.Id)
           {
             dgv.Rows[i].Selected = true;
           }
@@ -83,9 +68,9 @@ namespace EF6Basic.Views
       }
     }
 
-    public Student GetInputData() => new Student
+    public object GetInputData() => new Student
     {
-      ClassId = GetClassId(),
+      ClassId = cmbClass.GetIdOfSelectedValue(),
       Name = txtName.Text.Trim(),
       Birthday = dtpBirth.Value.ToString("yyyyMMdd"),
     };
@@ -103,8 +88,8 @@ namespace EF6Basic.Views
 
     internal void LoadStudentsOnly()
     {
-      var students = _schools.FirstOrDefault(s => s.Id == GetSchoolId())?
-                     .Classes?.FirstOrDefault(c => c.Id == GetClassId())?
+      var students = _schools.FirstOrDefault(s => s.Id == cmbSchool.GetIdOfSelectedValue())?
+                     .Classes?.FirstOrDefault(c => c.Id == cmbClass.GetIdOfSelectedValue())?
                      .Students?.ToList();
 
       dgv.RowCount = 0;
@@ -119,6 +104,12 @@ namespace EF6Basic.Views
           dgv["생일", row++].Value = student.Birthday;
         }
       }
+    }
+
+    public void Clear()
+    {
+      txtName.Clear();
+      dtpBirth.Value = DateTime.Now;
     }
   }
 }

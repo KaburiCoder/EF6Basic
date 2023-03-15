@@ -39,21 +39,11 @@ namespace EF6Basic.Views
       _cont = controller;
     }
 
-    public void LoadSchoolReg(IEnumerable<School> schools)
+    public void LoadReg(IEnumerable<School> schools)
     {
-      regControl.LoadSchoolReg(schools);
+      regControl.Load(schools);
     }      
-
-    public void LoadClassReg(IEnumerable<School> schools)
-    {
-      regControl.LoadClassReg(schools);
-    }
-
-    public void LoadStudentReg(IEnumerable<School> schools)
-    {
-      regControl.LoadStudentReg(schools);
-    }
-
+     
     private async void btnSave_Click(object sender, EventArgs e)
     {
       await _cont.OnSave();
@@ -64,10 +54,9 @@ namespace EF6Basic.Views
       await _cont.OnDelete();
     }
 
-    public School GetSchoolInputData() => regControl.GetSchoolInputData();
-    public Class GetClassInputData() => regControl.GetClassInputData();
-    public Student GetStudentInputData() => regControl.GetStudentInputData();
+    public object GetInputData() => regControl.GetInputData();   
     public void LoadClassesOnly() => regControl.LoadClassesOnly();
     public void LoadStudentsOnly()=> regControl.LoadStudentsOnly();
+    public void Clear()=> regControl.Clear();
   }
 }

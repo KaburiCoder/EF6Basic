@@ -7,13 +7,10 @@ namespace EF6Basic.Views
   {
     RegType RegType { get; set; }    
     void SetController(MainController controller);
-    void LoadSchoolReg(IEnumerable<School> school);
-    void LoadClassReg(IEnumerable<School> schools);
-    void LoadStudentReg(IEnumerable<School> schools);
-    School GetSchoolInputData();
-    Class GetClassInputData();
-    Student GetStudentInputData();
+    void LoadReg(IEnumerable<School> school);
+    object GetInputData();   
     void LoadStudentsOnly();
     void LoadClassesOnly();
+    void Clear();
   }
 }

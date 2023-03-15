@@ -1,4 +1,5 @@
 ﻿using EF6Basic.Models;
+using EF6Basic.Views.Controls;
 using System.ComponentModel;
 
 namespace EF6Basic.Views
@@ -11,6 +12,8 @@ namespace EF6Basic.Views
     {
       SelectedTabIndexChanged?.Invoke(sender, e);
     }
+
+    private IReg CurrentReg => (IReg)tab.SelectedTab.Controls[0];
 
     public RegControl()
     {
@@ -32,24 +35,11 @@ namespace EF6Basic.Views
       }
     }
 
-    public void LoadSchoolReg(IEnumerable<School> schools)
-    {
-      schoolReg.Load(schools);
-    }
+    public new void Load(IEnumerable<School> schools) => CurrentReg.Load(schools);
 
-    public void LoadClassReg(IEnumerable<School> schools)
-    {
-      classReg.Load(schools);
-    }
+    public void Clear() => CurrentReg.Clear();
 
-    public void LoadStudentReg(IEnumerable<School> schools)
-    {
-      studentReg.Load(schools);
-    }
-
-    public School GetSchoolInputData() => schoolReg.GetInputData();
-    public Class GetClassInputData() => classReg.GetInputData();
-    public Student GetStudentInputData() => studentReg.GetInputData();
+    public object GetInputData() => CurrentReg.GetInputData();    
     internal void LoadClassesOnly() => classReg.LoadClassesOnly();
     internal void LoadStudentsOnly() => studentReg.LoadStudentsOnly();
   }
