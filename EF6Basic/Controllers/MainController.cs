@@ -2,6 +2,7 @@
 using EF6Basic.Models;
 using EF6Basic.Repositories;
 using EF6Basic.Views;
+using EF6Basic.Views.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,12 +17,12 @@ namespace EF6Basic.Controllers
     private readonly IClassRepository _classRepository;
     private readonly IStudentRepository _studentRepository;
     private IMain _view = default!;
-     
+
     #region Save Methods
 
     // Save School 
     private async Task SaveSchoolReg(School school)
-    {     
+    {
       if (!MainSaveValidation.ValidSchool(school)) return;
       if (await _schoolRepository.ExistByName(school.Name)) return;
       if (await _schoolRepository.InsertAsync(school))
@@ -32,18 +33,18 @@ namespace EF6Basic.Controllers
 
     // Save Class
     private async Task SaveClassReg(Class cls)
-    {     
+    {
       if (!MainSaveValidation.ValidClass(cls)) return;
       if (await _classRepository.Exists(cls.SchoolId, cls.Name)) return;
       if (await _classRepository.InsertAsync(cls))
       {
-        _view.LoadClassesOnly();        
+        _view.LoadClassesOnly();
       }
     }
 
     // Save Student
     private async Task SaveStudentReg(Student student)
-    {      
+    {
       if (!MainSaveValidation.ValidStudent(student)) return;
       if (await _studentRepository.InsertAsync(student))
       {
@@ -51,6 +52,16 @@ namespace EF6Basic.Controllers
       }
     }
     #endregion
+
+    private void AddSearchComboBoxItems()
+    {
+      var dict = new Dictionary<SearchType, string>();
+      dict.Add(SearchType.StudentName, "학생이름");
+      dict.Add(SearchType.SchoolName, "학교");
+      dict.Add(SearchType.Birthday, "생년월일");
+
+      _view.AddSearchComboBoxItems(dict);
+    }
 
     public MainController(ISchoolRepository schoolRepository, IClassRepository classRepository, IStudentRepository studentRepository)
     {
@@ -73,9 +84,10 @@ namespace EF6Basic.Controllers
 
     internal async void FormLoaded()
     {
+      AddSearchComboBoxItems();
       await LoadReg();
     }
-     
+
     internal async Task OnSave()
     {
       var inputData = _view.GetInputData();
@@ -119,6 +131,19 @@ namespace EF6Basic.Controllers
           {
             _view.LoadStudentsOnly();
           }
+          break;
+      }
+    }
+
+    internal async void OnSearched()
+    {
+      switch (_view.SearchType)
+      {
+        case SearchType.SchoolName:
+          break;
+        case SearchType.Birthday:
+          break;
+        default:
           break;
       }
     }

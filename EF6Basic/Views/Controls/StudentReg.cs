@@ -47,9 +47,7 @@ namespace EF6Basic.Views
     {
       InitializeComponent();
 
-      dgv.ReadOnly = true;
-      dgv.AllowUserToAddRows = false;
-      dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+      dgv.SetReadOnlySettings();      
     }
 
     public object SelectedValue

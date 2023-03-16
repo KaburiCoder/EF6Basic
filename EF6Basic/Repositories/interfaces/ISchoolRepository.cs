@@ -4,6 +4,6 @@ namespace EF6Basic.Repositories
 {
   public interface ISchoolRepository : IRepositoryBase<School>
   {
-    public Task<bool> ExistByName(string name);   
+    public Task<bool> ExistByName(string name);
   }
 }

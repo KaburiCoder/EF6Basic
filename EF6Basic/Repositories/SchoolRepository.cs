@@ -13,6 +13,6 @@ namespace EF6Basic.Repositories
     public async Task<bool> ExistByName(string name)
     {
       return await DbSet.Where(x => x.Name == name).AnyAsync();
-    } 
+    }   
   }
 }
