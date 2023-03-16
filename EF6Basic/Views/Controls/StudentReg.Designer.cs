@@ -28,149 +28,142 @@
     /// </summary>
     private void InitializeComponent()
     {
-      this.label2 = new System.Windows.Forms.Label();
-      this.cmbSchool = new System.Windows.Forms.ComboBox();
-      this.txtName = new System.Windows.Forms.TextBox();
-      this.label1 = new System.Windows.Forms.Label();
-      this.cmbClass = new System.Windows.Forms.ComboBox();
-      this.dtpBirth = new System.Windows.Forms.DateTimePicker();
-      this.label3 = new System.Windows.Forms.Label();
-      this.label4 = new System.Windows.Forms.Label();
-      this.dgv = new System.Windows.Forms.DataGridView();
-      this.이름 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.생일 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
-      this.SuspendLayout();
+      label2 = new Label();
+      cmbSchool = new ComboBox();
+      txtName = new TextBox();
+      label1 = new Label();
+      cmbClass = new ComboBox();
+      dtpBirth = new DateTimePicker();
+      label3 = new Label();
+      label4 = new Label();
+      dgv = new DataGridView();
+      이름 = new DataGridViewTextBoxColumn();
+      생일 = new DataGridViewTextBoxColumn();
+      ((System.ComponentModel.ISupportInitialize)dgv).BeginInit();
+      SuspendLayout();
       // 
       // label2
       // 
-      this.label2.AutoSize = true;
-      this.label2.Location = new System.Drawing.Point(3, 43);
-      this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-      this.label2.Name = "label2";
-      this.label2.Size = new System.Drawing.Size(54, 20);
-      this.label2.TabIndex = 12;
-      this.label2.Text = "반이름";
+      label2.AutoSize = true;
+      label2.Location = new Point(3, 43);
+      label2.Margin = new Padding(4, 0, 4, 0);
+      label2.Name = "label2";
+      label2.Size = new Size(54, 20);
+      label2.TabIndex = 12;
+      label2.Text = "반이름";
       // 
       // cmbSchool
       // 
-      this.cmbSchool.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-      this.cmbSchool.FormattingEnabled = true;
-      this.cmbSchool.Location = new System.Drawing.Point(64, 5);
-      this.cmbSchool.Name = "cmbSchool";
-      this.cmbSchool.Size = new System.Drawing.Size(286, 28);
-      this.cmbSchool.TabIndex = 11;
-      this.cmbSchool.SelectedIndexChanged += new System.EventHandler(this.cmbSchool_SelectedIndexChanged);
+      cmbSchool.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+      cmbSchool.DropDownStyle = ComboBoxStyle.DropDownList;
+      cmbSchool.FormattingEnabled = true;
+      cmbSchool.Location = new Point(64, 5);
+      cmbSchool.Name = "cmbSchool";
+      cmbSchool.Size = new Size(286, 28);
+      cmbSchool.TabIndex = 11;
+      cmbSchool.SelectedIndexChanged += cmbSchool_SelectedIndexChanged;
       // 
       // txtName
       // 
-      this.txtName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-      this.txtName.Location = new System.Drawing.Point(64, 73);
-      this.txtName.Name = "txtName";
-      this.txtName.Size = new System.Drawing.Size(286, 27);
-      this.txtName.TabIndex = 9;
+      txtName.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+      txtName.Location = new Point(64, 73);
+      txtName.Name = "txtName";
+      txtName.Size = new Size(286, 27);
+      txtName.TabIndex = 9;
       // 
       // label1
       // 
-      this.label1.AutoSize = true;
-      this.label1.Location = new System.Drawing.Point(3, 8);
-      this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-      this.label1.Name = "label1";
-      this.label1.Size = new System.Drawing.Size(54, 20);
-      this.label1.TabIndex = 8;
-      this.label1.Text = "학교명";
+      label1.AutoSize = true;
+      label1.Location = new Point(3, 8);
+      label1.Margin = new Padding(4, 0, 4, 0);
+      label1.Name = "label1";
+      label1.Size = new Size(54, 20);
+      label1.TabIndex = 8;
+      label1.Text = "학교명";
       // 
       // cmbClass
       // 
-      this.cmbClass.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-      this.cmbClass.FormattingEnabled = true;
-      this.cmbClass.Location = new System.Drawing.Point(64, 39);
-      this.cmbClass.Name = "cmbClass";
-      this.cmbClass.Size = new System.Drawing.Size(286, 28);
-      this.cmbClass.TabIndex = 13;
-      this.cmbClass.SelectedIndexChanged += new System.EventHandler(this.cmbClass_SelectedIndexChanged);
+      cmbClass.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+      cmbClass.DropDownStyle = ComboBoxStyle.DropDownList;
+      cmbClass.FormattingEnabled = true;
+      cmbClass.Location = new Point(64, 39);
+      cmbClass.Name = "cmbClass";
+      cmbClass.Size = new Size(286, 28);
+      cmbClass.TabIndex = 13;
+      cmbClass.SelectedIndexChanged += cmbClass_SelectedIndexChanged;
       // 
       // dtpBirth
       // 
-      this.dtpBirth.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-      this.dtpBirth.Location = new System.Drawing.Point(64, 106);
-      this.dtpBirth.Name = "dtpBirth";
-      this.dtpBirth.Size = new System.Drawing.Size(286, 27);
-      this.dtpBirth.TabIndex = 14;
+      dtpBirth.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+      dtpBirth.Location = new Point(64, 106);
+      dtpBirth.Name = "dtpBirth";
+      dtpBirth.Size = new Size(286, 27);
+      dtpBirth.TabIndex = 14;
       // 
       // label3
       // 
-      this.label3.AutoSize = true;
-      this.label3.Location = new System.Drawing.Point(18, 77);
-      this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-      this.label3.Name = "label3";
-      this.label3.Size = new System.Drawing.Size(39, 20);
-      this.label3.TabIndex = 15;
-      this.label3.Text = "이름";
+      label3.AutoSize = true;
+      label3.Location = new Point(18, 77);
+      label3.Margin = new Padding(4, 0, 4, 0);
+      label3.Name = "label3";
+      label3.Size = new Size(39, 20);
+      label3.TabIndex = 15;
+      label3.Text = "이름";
       // 
       // label4
       // 
-      this.label4.AutoSize = true;
-      this.label4.Location = new System.Drawing.Point(18, 110);
-      this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-      this.label4.Name = "label4";
-      this.label4.Size = new System.Drawing.Size(39, 20);
-      this.label4.TabIndex = 16;
-      this.label4.Text = "생일";
+      label4.AutoSize = true;
+      label4.Location = new Point(18, 110);
+      label4.Margin = new Padding(4, 0, 4, 0);
+      label4.Name = "label4";
+      label4.Size = new Size(39, 20);
+      label4.TabIndex = 16;
+      label4.Text = "생일";
       // 
       // dgv
       // 
-      this.dgv.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-      this.dgv.BackgroundColor = System.Drawing.Color.White;
-      this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-      this.dgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.이름,
-            this.생일});
-      this.dgv.Location = new System.Drawing.Point(3, 139);
-      this.dgv.Name = "dgv";
-      this.dgv.RowTemplate.Height = 25;
-      this.dgv.Size = new System.Drawing.Size(347, 200);
-      this.dgv.TabIndex = 17;
+      dgv.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+      dgv.BackgroundColor = Color.White;
+      dgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+      dgv.Columns.AddRange(new DataGridViewColumn[] { 이름, 생일 });
+      dgv.Location = new Point(3, 139);
+      dgv.Name = "dgv";
+      dgv.RowTemplate.Height = 25;
+      dgv.Size = new Size(347, 200);
+      dgv.TabIndex = 17;
       // 
       // 이름
       // 
-      this.이름.HeaderText = "이름";
-      this.이름.Name = "이름";
-      this.이름.Width = 150;
+      이름.HeaderText = "이름";
+      이름.Name = "이름";
+      이름.Width = 150;
       // 
       // 생일
       // 
-      this.생일.HeaderText = "생일";
-      this.생일.Name = "생일";
-      this.생일.Width = 150;
+      생일.HeaderText = "생일";
+      생일.Name = "생일";
+      생일.Width = 150;
       // 
       // StudentReg
       // 
-      this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
-      this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.Controls.Add(this.dgv);
-      this.Controls.Add(this.label4);
-      this.Controls.Add(this.label3);
-      this.Controls.Add(this.dtpBirth);
-      this.Controls.Add(this.cmbClass);
-      this.Controls.Add(this.label2);
-      this.Controls.Add(this.cmbSchool);
-      this.Controls.Add(this.txtName);
-      this.Controls.Add(this.label1);
-      this.Font = new System.Drawing.Font("맑은 고딕", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-      this.Margin = new System.Windows.Forms.Padding(4);
-      this.Name = "StudentReg";
-      this.Size = new System.Drawing.Size(354, 342);
-      ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
-      this.ResumeLayout(false);
-      this.PerformLayout();
-
+      AutoScaleDimensions = new SizeF(9F, 20F);
+      AutoScaleMode = AutoScaleMode.Font;
+      Controls.Add(dgv);
+      Controls.Add(label4);
+      Controls.Add(label3);
+      Controls.Add(dtpBirth);
+      Controls.Add(cmbClass);
+      Controls.Add(label2);
+      Controls.Add(cmbSchool);
+      Controls.Add(txtName);
+      Controls.Add(label1);
+      Font = new Font("맑은 고딕", 11F, FontStyle.Regular, GraphicsUnit.Point);
+      Margin = new Padding(4);
+      Name = "StudentReg";
+      Size = new Size(354, 342);
+      ((System.ComponentModel.ISupportInitialize)dgv).EndInit();
+      ResumeLayout(false);
+      PerformLayout();
     }
 
     #endregion

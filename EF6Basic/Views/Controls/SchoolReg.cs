@@ -19,7 +19,7 @@ namespace EF6Basic.Views
       InitializeComponent();
     }
 
-    public object SelectedValue { get => lbSchool.SelectedValue; set => lbSchool.SelectedValue = value; }
+    public object SelectedValue { get => lbSchool.SelectedValue ?? 0; set => lbSchool.SelectedValue = value; }
 
     public void Clear() => txtSchool.Clear();
 

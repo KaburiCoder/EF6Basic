@@ -34,6 +34,8 @@ namespace EF6Basic.Views
 
     public RegType RegType { get => regControl.RegType; set => regControl.RegType = value; }
 
+    public int SelectedId => regControl.SelectedId;
+
     public void SetController(MainController controller)
     {
       _cont = controller;

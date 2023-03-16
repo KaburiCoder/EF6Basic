@@ -97,7 +97,30 @@ namespace EF6Basic.Controllers
 
     internal async Task OnDelete()
     {
-      throw new NotImplementedException();
+      int selectedId = _view.SelectedId;
+      if (selectedId == 0) return;
+
+      switch (_view.RegType)
+      {
+        case RegType.School:
+          if (await _schoolRepository.DeleteByIdAsync(selectedId))
+          {
+            await LoadReg();
+          }
+          break;
+        case RegType.Class:
+          if (await _classRepository.DeleteByIdAsync(selectedId))
+          {
+            _view.LoadClassesOnly();
+          }
+          break;
+        default:
+          if (await _studentRepository.DeleteByIdAsync(selectedId))
+          {
+            _view.LoadStudentsOnly();
+          }
+          break;
+      }
     }
   }
 }

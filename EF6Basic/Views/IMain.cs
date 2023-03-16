@@ -5,10 +5,11 @@ namespace EF6Basic.Views
 {
   public interface IMain
   {
-    RegType RegType { get; set; }    
+    RegType RegType { get; set; }
+    int SelectedId { get; }
     void SetController(MainController controller);
     void LoadReg(IEnumerable<School> school);
-    object GetInputData();   
+    object GetInputData();
     void LoadStudentsOnly();
     void LoadClassesOnly();
     void Clear();

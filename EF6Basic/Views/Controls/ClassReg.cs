@@ -23,19 +23,19 @@ namespace EF6Basic.Views
       if (!_isLoaded) return;
 
       LoadClassesOnly();
-    }         
+    }
 
     private void AddSchoolComboItems()
     {
-      cmbSchool.BindIdWithName(_schools);      
+      cmbSchool.BindIdWithName(_schools);
     }
-      
+
     public ClassReg()
     {
       InitializeComponent();
     }
 
-    public object SelectedValue { get => lbClass.SelectedValue; set => lbClass.SelectedValue = value; }       
+    public object SelectedValue { get => lbClass.SelectedValue ?? 0; set => lbClass.SelectedValue = value; }
 
     public object GetInputData() => new Class { SchoolId = cmbSchool.GetIdOfSelectedValue(), Name = txtClass.Text.Trim() };
 

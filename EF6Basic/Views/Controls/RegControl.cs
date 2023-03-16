@@ -35,6 +35,7 @@ namespace EF6Basic.Views
       }
     }
 
+    public int SelectedId => (int)CurrentReg.SelectedValue;
     public new void Load(IEnumerable<School> schools) => CurrentReg.Load(schools);
 
     public void Clear() => CurrentReg.Clear();

@@ -17,22 +17,21 @@ namespace EF6Basic.Views
   {
     private IEnumerable<School> _schools = default!;
     private bool _isLoaded;
-        
+
     private void AddSchoolComboItems()
     {
-      cmbSchool.BindIdWithName(_schools);   
+      cmbSchool.BindIdWithName(_schools);
     }
 
     private void AddClassComboItems()
     {
       var classes = _schools.FirstOrDefault(s => s.Id == cmbSchool.GetIdOfSelectedValue())?.Classes;
-      cmbClass.BindIdWithName(classes?.ToList());    
+      cmbClass.BindIdWithName(classes?.ToList());
     }
 
     private void cmbSchool_SelectedIndexChanged(object sender, EventArgs e)
     {
       if (!_isLoaded) return;
-
       AddClassComboItems();
       LoadStudentsOnly();
     }
@@ -55,7 +54,8 @@ namespace EF6Basic.Views
 
     public object SelectedValue
     {
-      get => dgv.CurrentRow?.Tag!; set
+      get => dgv.CurrentRow?.Tag is Student st ? st.Id : 0;
+      set
       {
         for (int i = 0; i < dgv.Rows.Count; i++)
         {

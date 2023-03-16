@@ -28,81 +28,77 @@
     /// </summary>
     private void InitializeComponent()
     {
-      this.lbClass = new System.Windows.Forms.ListBox();
-      this.txtClass = new System.Windows.Forms.TextBox();
-      this.label1 = new System.Windows.Forms.Label();
-      this.cmbSchool = new System.Windows.Forms.ComboBox();
-      this.label2 = new System.Windows.Forms.Label();
-      this.SuspendLayout();
+      lbClass = new ListBox();
+      txtClass = new TextBox();
+      label1 = new Label();
+      cmbSchool = new ComboBox();
+      label2 = new Label();
+      SuspendLayout();
       // 
       // lbClass
       // 
-      this.lbClass.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-      this.lbClass.FormattingEnabled = true;
-      this.lbClass.ItemHeight = 20;
-      this.lbClass.Location = new System.Drawing.Point(4, 70);
-      this.lbClass.Name = "lbClass";
-      this.lbClass.Size = new System.Drawing.Size(186, 124);
-      this.lbClass.TabIndex = 5;
+      lbClass.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+      lbClass.FormattingEnabled = true;
+      lbClass.ItemHeight = 20;
+      lbClass.Location = new Point(4, 70);
+      lbClass.Name = "lbClass";
+      lbClass.Size = new Size(186, 124);
+      lbClass.TabIndex = 5;
       // 
       // txtClass
       // 
-      this.txtClass.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-      this.txtClass.Location = new System.Drawing.Point(65, 37);
-      this.txtClass.Name = "txtClass";
-      this.txtClass.Size = new System.Drawing.Size(125, 27);
-      this.txtClass.TabIndex = 4;
+      txtClass.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+      txtClass.Location = new Point(65, 37);
+      txtClass.Name = "txtClass";
+      txtClass.Size = new Size(125, 27);
+      txtClass.TabIndex = 4;
       // 
       // label1
       // 
-      this.label1.AutoSize = true;
-      this.label1.Location = new System.Drawing.Point(4, 6);
-      this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-      this.label1.Name = "label1";
-      this.label1.Size = new System.Drawing.Size(54, 20);
-      this.label1.TabIndex = 3;
-      this.label1.Text = "학교명";
+      label1.AutoSize = true;
+      label1.Location = new Point(4, 6);
+      label1.Margin = new Padding(4, 0, 4, 0);
+      label1.Name = "label1";
+      label1.Size = new Size(54, 20);
+      label1.TabIndex = 3;
+      label1.Text = "학교명";
       // 
       // cmbSchool
       // 
-      this.cmbSchool.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-      this.cmbSchool.FormattingEnabled = true;
-      this.cmbSchool.Location = new System.Drawing.Point(65, 3);
-      this.cmbSchool.Name = "cmbSchool";
-      this.cmbSchool.Size = new System.Drawing.Size(121, 28);
-      this.cmbSchool.TabIndex = 6;
-      this.cmbSchool.SelectedIndexChanged += new System.EventHandler(this.cmbSchool_SelectedIndexChanged);
+      cmbSchool.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+      cmbSchool.DropDownStyle = ComboBoxStyle.DropDownList;
+      cmbSchool.FormattingEnabled = true;
+      cmbSchool.Location = new Point(65, 3);
+      cmbSchool.Name = "cmbSchool";
+      cmbSchool.Size = new Size(121, 28);
+      cmbSchool.TabIndex = 6;
+      cmbSchool.SelectedIndexChanged += cmbSchool_SelectedIndexChanged;
       // 
       // label2
       // 
-      this.label2.AutoSize = true;
-      this.label2.Location = new System.Drawing.Point(4, 41);
-      this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-      this.label2.Name = "label2";
-      this.label2.Size = new System.Drawing.Size(54, 20);
-      this.label2.TabIndex = 7;
-      this.label2.Text = "반이름";
+      label2.AutoSize = true;
+      label2.Location = new Point(4, 41);
+      label2.Margin = new Padding(4, 0, 4, 0);
+      label2.Name = "label2";
+      label2.Size = new Size(54, 20);
+      label2.TabIndex = 7;
+      label2.Text = "반이름";
       // 
       // ClassReg
       // 
-      this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
-      this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.Controls.Add(this.label2);
-      this.Controls.Add(this.cmbSchool);
-      this.Controls.Add(this.lbClass);
-      this.Controls.Add(this.txtClass);
-      this.Controls.Add(this.label1);
-      this.Font = new System.Drawing.Font("맑은 고딕", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-      this.Margin = new System.Windows.Forms.Padding(4);
-      this.Name = "ClassReg";
-      this.Size = new System.Drawing.Size(193, 200);
-      this.ResumeLayout(false);
-      this.PerformLayout();
-
+      AutoScaleDimensions = new SizeF(9F, 20F);
+      AutoScaleMode = AutoScaleMode.Font;
+      Controls.Add(label2);
+      Controls.Add(cmbSchool);
+      Controls.Add(lbClass);
+      Controls.Add(txtClass);
+      Controls.Add(label1);
+      Font = new Font("맑은 고딕", 11F, FontStyle.Regular, GraphicsUnit.Point);
+      Margin = new Padding(4);
+      Name = "ClassReg";
+      Size = new Size(193, 200);
+      ResumeLayout(false);
+      PerformLayout();
     }
 
     #endregion
