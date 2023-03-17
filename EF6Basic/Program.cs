@@ -18,6 +18,7 @@ namespace EF6Basic
       services.AddTransient<ISchoolRepository, SchoolRepository>();
       services.AddTransient<IClassRepository, ClassRepository>();
       services.AddTransient<IStudentRepository, StudentRepository>();
+      services.AddTransient<ISchoolClassStudentRepository, SchoolClassStudentRepository>();
 
       services.AddSingleton<MainController>();
 

@@ -78,6 +78,11 @@ namespace EF6Basic.Views
       cmbSearch.DataSource = new BindingSource(dict, null);
       cmbSearch.ValueMember = "Key";
       cmbSearch.DisplayMember = "Value";
-    }    
+    }
+
+    public void SearchDatasToGridView(List<SchoolClassStudent> results)
+    {
+      dgv.DataSource = results;
+    }
   }
 }

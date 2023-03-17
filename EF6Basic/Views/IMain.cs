@@ -17,5 +17,6 @@ namespace EF6Basic.Views
     void LoadClassesOnly();
     void Clear();
     void AddSearchComboBoxItems(Dictionary<SearchType, string> dict);
+    void SearchDatasToGridView(List<SchoolClassStudent> results);
   }
 }

@@ -5,6 +5,7 @@ using EF6Basic.Views;
 using EF6Basic.Views.Enums;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +17,7 @@ namespace EF6Basic.Controllers
     private readonly ISchoolRepository _schoolRepository = default!;
     private readonly IClassRepository _classRepository;
     private readonly IStudentRepository _studentRepository;
+    private readonly ISchoolClassStudentRepository _schoolClassStudentRepository;
     private IMain _view = default!;
 
     #region Save Methods
@@ -63,11 +65,15 @@ namespace EF6Basic.Controllers
       _view.AddSearchComboBoxItems(dict);
     }
 
-    public MainController(ISchoolRepository schoolRepository, IClassRepository classRepository, IStudentRepository studentRepository)
+    public MainController(ISchoolRepository schoolRepository,
+      IClassRepository classRepository,
+      IStudentRepository studentRepository,
+      ISchoolClassStudentRepository schoolClassStudentRepository)
     {
       this._schoolRepository = schoolRepository;
       this._classRepository = classRepository;
       this._studentRepository = studentRepository;
+      this._schoolClassStudentRepository = schoolClassStudentRepository;
     }
 
     public async Task LoadReg()
@@ -137,15 +143,13 @@ namespace EF6Basic.Controllers
 
     internal async void OnSearched()
     {
-      switch (_view.SearchType)
+      List<SchoolClassStudent> results = _view.SearchType switch
       {
-        case SearchType.SchoolName:
-          break;
-        case SearchType.Birthday:
-          break;
-        default:
-          break;
-      }
+        SearchType.SchoolName => await _schoolClassStudentRepository.GetAllBySchoolNameAsync(_view.SearchText),
+        SearchType.Birthday => await _schoolClassStudentRepository.GetAllByBirthdayNameAsync(_view.SearchText),
+        _ => await _schoolClassStudentRepository.GetAllByStudentNameAsync(_view.SearchText),
+      };
+      _view.SearchDatasToGridView(results);
     }
   }
 }

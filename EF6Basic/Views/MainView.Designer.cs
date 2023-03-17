@@ -37,15 +37,15 @@
       splitter1 = new Splitter();
       panel3 = new Panel();
       dgv = new DataGridView();
-      학교 = new DataGridViewTextBoxColumn();
-      반 = new DataGridViewTextBoxColumn();
-      이름 = new DataGridViewTextBoxColumn();
-      생년월일 = new DataGridViewTextBoxColumn();
       panel4 = new Panel();
       txtSearch = new TextBox();
       cmbSearch = new ComboBox();
       btnSearch = new Button();
       label2 = new Label();
+      학교 = new DataGridViewTextBoxColumn();
+      반 = new DataGridViewTextBoxColumn();
+      이름 = new DataGridViewTextBoxColumn();
+      생년월일 = new DataGridViewTextBoxColumn();
       panel1.SuspendLayout();
       panel2.SuspendLayout();
       panel3.SuspendLayout();
@@ -142,26 +142,6 @@
       dgv.Size = new Size(444, 409);
       dgv.TabIndex = 1;
       // 
-      // 학교
-      // 
-      학교.HeaderText = "학교";
-      학교.Name = "학교";
-      // 
-      // 반
-      // 
-      반.HeaderText = "반";
-      반.Name = "반";
-      // 
-      // 이름
-      // 
-      이름.HeaderText = "이름";
-      이름.Name = "이름";
-      // 
-      // 생년월일
-      // 
-      생년월일.HeaderText = "생년월일";
-      생년월일.Name = "생년월일";
-      // 
       // panel4
       // 
       panel4.Controls.Add(txtSearch);
@@ -210,6 +190,30 @@
       label2.TabIndex = 0;
       label2.Text = "정보 검색";
       // 
+      // 학교
+      // 
+      학교.DataPropertyName = "SchoolName";
+      학교.HeaderText = "학교";
+      학교.Name = "학교";
+      // 
+      // 반
+      // 
+      반.DataPropertyName = "ClassName";
+      반.HeaderText = "반";
+      반.Name = "반";
+      // 
+      // 이름
+      // 
+      이름.DataPropertyName = "StudentName";
+      이름.HeaderText = "이름";
+      이름.Name = "이름";
+      // 
+      // 생년월일
+      // 
+      생년월일.DataPropertyName = "Birthday";
+      생년월일.HeaderText = "생년월일";
+      생년월일.Name = "생년월일";
+      // 
       // MainView
       // 
       AutoScaleDimensions = new SizeF(7F, 15F);
@@ -241,14 +245,14 @@
     private Splitter splitter1;
     private Panel panel3;
     private DataGridView dgv;
-    private DataGridViewTextBoxColumn 학교;
-    private DataGridViewTextBoxColumn 반;
-    private DataGridViewTextBoxColumn 이름;
-    private DataGridViewTextBoxColumn 생년월일;
     private Panel panel4;
     private TextBox txtSearch;
     private ComboBox cmbSearch;
     private Button btnSearch;
     private Label label2;
+    private DataGridViewTextBoxColumn 학교;
+    private DataGridViewTextBoxColumn 반;
+    private DataGridViewTextBoxColumn 이름;
+    private DataGridViewTextBoxColumn 생년월일;
   }
 }
